@@ -4,6 +4,7 @@
   "description": "Extract info from PDFs to HTMl",
   "main": "pdftotext-test.js",
   "dependencies": {
+    "pdf2json": "^1.1.7",
     "pdftotextjs": "^0.5.1"
   },
   "devDependencies": {},
