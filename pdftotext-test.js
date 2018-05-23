@@ -29,8 +29,9 @@ function splitTextByColon (foundText) {
 }
 
 function trimText (arrayToTrim) {
-  arrayToTrim[1].trim();
+  return arrayToTrim[1].trim();
 }
 
-
-console.log (findText(date));
+console.log (
+  findText(date)
+);
