@@ -4,14 +4,33 @@ var pdf = new pdftotext('sample/test.pdf');
 var data = pdf.getTextSync(); // returns buffer
 data = data.toString('utf8');
 
-var re = /.*PUBLICATION DATE.*/g;
-var found = data.match(re);
-var splitText = found.toString().split(":");
-var actionDate = splitText[1].trim();
-console.log (actionDate);
+var scrapedData = {};
+
 
 var re1 = /.*URGENT ACTION TYPE AND NUMBER.*/g;
 var found1 = data.match(re1);
 var splitText1 = found1.toString().split(":");
-var actionNumber = splitText1[1].trim();
-console.log (actionNumber);
+scrapedData.number = splitText1[1].trim();
+
+console.log (scrapedData);
+
+// Trying to break it down
+
+var date = /.*PUBLICATION DATE.*/g;
+
+function findText (textToFind) {
+  return data
+    .match(textToFind)
+    .toString();
+}
+
+function splitTextByColon (foundText) {
+  return foundText.split(":");
+}
+
+function trimText (arrayToTrim) {
+  arrayToTrim[1].trim();
+}
+
+
+console.log (findText(date));
