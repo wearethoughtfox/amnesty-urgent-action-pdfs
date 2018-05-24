@@ -1,4 +1,5 @@
 var pdftotext = require('pdftotextjs');
+var R = require('ramda');
 var pdf = new pdftotext('sample/test.pdf');
 
 var data = pdf.getTextSync(); // returns buffer
@@ -6,17 +7,8 @@ data = data.toString('utf8');
 
 var scrapedData = {};
 
-
-var re1 = /.*URGENT ACTION TYPE AND NUMBER.*/g;
-var found1 = data.match(re1);
-var splitText1 = found1.toString().split(":");
-scrapedData.number = splitText1[1].trim();
-
-console.log (scrapedData);
-
-// Trying to break it down
-
 var date = /.*PUBLICATION DATE.*/g;
+var number = /.*URGENT ACTION TYPE AND NUMBER.*/g;
 
 function findText (textToFind) {
   return data
@@ -24,14 +16,23 @@ function findText (textToFind) {
     .toString();
 }
 
-function splitTextByColon (foundText) {
-  return foundText.split(":");
+function getTextAfterColon (foundText) {
+  var splitArray = foundText.split(":");
+  return splitArray[1];
 }
 
-function trimText (arrayToTrim) {
-  return arrayToTrim[1].trim();
+function trimText (textToTrim) {
+  return textToTrim.trim();
 }
 
-console.log (
-  findText(date)
-);
+//Run with date
+var result1 = findText(date);
+var result2 = getTextAfterColon(result1);
+scrapedData.date = trimText(result2);
+
+//Run with number
+var result3 = findText(number);
+var result4 = getTextAfterColon(result3);
+scrapedData.number = trimText(result4);
+
+console.log (scrapedData);
