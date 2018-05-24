@@ -5,7 +5,8 @@
   "main": "pdftotext-test.js",
   "dependencies": {
     "pdf2json": "^1.1.7",
-    "pdftotextjs": "^0.5.1"
+    "pdftotextjs": "^0.5.1",
+    "ramda": "^0.25.0"
   },
   "devDependencies": {},
   "scripts": {
