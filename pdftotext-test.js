@@ -31,8 +31,6 @@ var result2 = getTextAfterColon(result1);
 scrapedData.date = trimText(result2);
 
 //Run with number
-var result3 = findText(number);
-var result4 = getTextAfterColon(result3);
-scrapedData.number = trimText(result4);
+scrapedData.number = trimText(getTextAfterColon(findText(number)));
 
 console.log (scrapedData);
