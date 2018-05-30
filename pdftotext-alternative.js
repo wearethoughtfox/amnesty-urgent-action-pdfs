@@ -101,4 +101,11 @@ sections = sections.map(function (section, i) {
 	return section;
 });
 
-console.log(sections);
+// Take the array of sections, and turn it into a single object of scraped data.
+var scrapedData = sections.reduce(function (accumulator, currentSection) {
+    accumulator[currentSection.name] = currentSection.content;
+
+    return accumulator;
+}, {});
+
+console.log(scrapedData);
