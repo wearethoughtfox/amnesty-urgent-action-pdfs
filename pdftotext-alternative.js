@@ -1,5 +1,5 @@
 var pdftotext = require('pdftotextjs');
-
+var fs = require('fs');
 
 // Get all the text from the PDF, as one long string.
 var pdftext = new pdftotext('sample/test.pdf').getTextSync().toString('utf8');
@@ -108,4 +108,13 @@ var scrapedData = sections.reduce(function (accumulator, currentSection) {
     return accumulator;
 }, {});
 
-console.log(scrapedData);
+var jsonContent = JSON.stringify(scrapedData, null, 4);
+
+fs.writeFile("pdfoutput.json", jsonContent, 'utf8', function (err) {
+    if (err) {
+        console.log("An error occured while writing JSON Object to File.");
+        return console.log(err);
+    }
+
+    console.log("JSON file has been saved.");
+});
