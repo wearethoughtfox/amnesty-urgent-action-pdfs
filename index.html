@@ -19,14 +19,17 @@
     <p class="number gray">{{ targetContactDetails }}</p>
   </header>
   <div class="fn fl-ns w-50-ns">
+
     <p class="lh-copy measure mt4 mt0-ns f3 i">
       {{ summary }}
     </p>
-    <p class="lh-copy measure f4 bb b--black-70 pb4">
-      {{ letterTest }}
+
+    <p data-each="paragraphs in letter" class=" lh-copy measure f4">
+      {{ paragraphs }}
     </p>
 
-    <p class="lh-copy measure f5">
+
+    <p class="lh-copy measure f5 bt b--black-70 pt4">
       {{ background }}
     </p>
   </div>
