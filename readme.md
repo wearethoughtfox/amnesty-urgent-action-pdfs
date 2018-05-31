@@ -21,3 +21,6 @@ https://www.amnesty.org/en/documents/afr63/8403/2018/en/ - Button
 4. The script uses pdftotext through the pdftotextjs wrapper to convert the sample PDF to a string.
 5. Then it looks through that string for all the labels defined and splits the string up into separate key value pairs based on the labels.
 6. It outputs these as an object.
+7. This object is written to a [file](/pdfoutput.json)
+8. This file is loaded into index.html
+9. It populates a simple unstyled template
