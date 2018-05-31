@@ -11,61 +11,69 @@ var pdftext = new pdftotext('sample/test.pdf').getTextSync().toString('utf8');
 var labels = [
     {
         name: 'title',
-        text: 'URGENT ACTION TITLE:'
+        text: 'URGENT ACTION TITLE:',
+          re: /URGENT ACTION TITLE:/
     },
     {
         name: 'date',
-        text: 'PUBLICATION DATE:'
+        text: 'PUBLICATION DATE:',
+          re: /PUBLICATION DATE:/
     },
     {
         name: 'number',
-        text: 'URGENT ACTION TYPE AND NUMBER:'
+        text: 'URGENT ACTION TYPE AND NUMBER:',
+          re: /URGENT ACTION TYPE AND NUMBER:/
     },
     {
         name: 'indexNumber',
-        text: 'INDEX NUMBER:'
+        text: 'INDEX NUMBER:',
+          re: /INDEX NUMBER:/
     },
     {
         name: 'summary',
-        text: 'URGENT ACTION SUMMARY:'
+        text: 'URGENT ACTION SUMMARY:',
+          re: /URGENT ACTION SUMMARY:/
     },
     {
         name: 'letter',
-        text: 'URGENT ACTION LETTER:'
+        text: 'URGENT ACTION LETTER:',
+          re: /URGENT ACTION LETTER:/
     },
     {
         name: 'targetContactDetails',
-        text: 'TARGET’S CONTACT DETAILS & “COPIES TO”'
+        text: 'TARGET’S CONTACT DETAILS & “COPIES TO”',
+          re: /TARGET.S CONTACT DETAILS & .COPIES TO./
     },
     {
         name: 'preferredLanguage',
-        text: 'PREFERRED LANGUAGE TO ADDRESS TARGET:'
+        text: 'PREFERRED LANGUAGE TO ADDRESS TARGET:',
+          re: /PREFERRED LANGUAGE TO ADDRESS TARGET:/
     },
     {
         name: 'deadline',
-        text: 'APPEAL DEADLINE NOTICE:'
+        text: 'APPEAL DEADLINE NOTICE:',
+          re: /APPEAL DEADLINE NOTICE:/
     },
     {
         name: 'sendCopies',
-        text: 'ALSO SEND COPIES TO DIPLOMATIC REPRESENTATIVES ACCREDITED TO YOUR COUNTRY'
+        text: 'ALSO SEND COPIES TO DIPLOMATIC REPRESENTATIVES ACCREDITED TO YOUR COUNTRY',
+          re: /ALSO SEND COPIES TO DIPLOMATIC REPRESENTATIVES ACCREDITED TO YOUR COUNTRY/
     },
     {
         name: 'previousUALink',
-        text: 'LINK TO PREVIOUS UA:'
+        text: 'LINK TO PREVIOUS UA:',
+          re: /LINK TO PREVIOUS UA:/
     },
     {
         name: 'background',
-        text: 'BACKGROUND INFORMATION (400 WORDS + RELEVANT LINKS):'
-    },
-    {
-        name: 'paulsSecretSection',
-        text: 'PAUL’S VERY OWN SECRET :'
+        text: 'BACKGROUND INFORMATION (400 WORDS + RELEVANT LINKS):',
+          re: /BACKGROUND INFORMATION \(400 WORDS \+ RELEVANT LINKS\):/
     }
 ];
 
 // Create a new array with all the labels from the previous list, and add the start and end positions of those labels in the PDF
 var sections = labels.map(function (label, i) {
-	var labelStart = pdftext.indexOf(label.text),
+	var labelStart = pdftext.search(label.re),
 	      labelEnd = (labelStart > -1) ? (labelStart + label.text.length) : -1;
 
 	return {
