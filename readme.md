@@ -24,3 +24,8 @@ https://www.amnesty.org/en/documents/afr63/8403/2018/en/ - Button
 7. This object is written to a [file](/pdfoutput.json)
 8. This file is loaded into index.html
 9. It populates a simple template with minimal styling as a proof of concept
+
+## Issues
+1. targetContactDetails doesn’t have any line breaks for some reason
+2. The page numbers “1” and “2” are shown when perhaps we don’t need them.
+3. Marking up links to https://www.amnesty.org/en/documents/  in some way but this gets into the way you display the data.
