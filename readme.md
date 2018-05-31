@@ -23,4 +23,4 @@ https://www.amnesty.org/en/documents/afr63/8403/2018/en/ - Button
 6. It outputs these as an object.
 7. This object is written to a [file](/pdfoutput.json)
 8. This file is loaded into index.html
-9. It populates a simple unstyled template
+9. It populates a simple template with minimal styling as a proof of concept
