@@ -121,12 +121,12 @@ var scrapedData = sections.reduce(function (accumulator, currentSection) {
 }, {});
 
 if (scrapedData.letter) {
-      scrapedData.letter = scrapedData.letter.split('.\n');
-      var letterArray = scrapedData.letter;
+      scrapedData.letter = scrapedData.letter.split('\n');
+/*      var letterArray = scrapedData.letter;
       for(var i = 0; i < letterArray.length; ++i) {
         letterArray[i] = letterArray[i].replace(/(\n)/gm," ");
       }
-      scrapedData.letter = letterArray;
+      scrapedData.letter = letterArray;*/
   }
 
 var jsonContent = JSON.stringify(scrapedData, null, 4);
