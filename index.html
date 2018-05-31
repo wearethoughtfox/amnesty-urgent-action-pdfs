@@ -3,7 +3,7 @@
   <title> </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/tachyons.min.css">
-  <body>
+  <body class="sans-serif">
 
   <amnesty-pdf></amnesty-pdf>
 
@@ -16,7 +16,7 @@
     <p class="number pink">{{ indexNumber }}</p>
   </header>
   <div class="fn fl-ns w-50-ns">
-    <p class="lh-copy measure mt4 mt0-ns f3">
+    <p class="lh-copy measure mt4 mt0-ns f3 i">
       {{ summary }}
     </p>
     <p class="lh-copy measure">
@@ -28,29 +28,32 @@
 </template>
 
  <!-- javascript -->
+
     <script src="javascripts/magery-compiler.min.js"></script>
     <script src="javascripts/magery-runtime.min.js"></script>
     <script>
 
+    function loadJSON(callback) {
+      var xobj = new XMLHttpRequest();
+          xobj.overrideMimeType("application/json");
+      xobj.open('GET', 'pdfoutput.json', true); // Replace 'my_data' with the path to your file
+      xobj.onreadystatechange = function () {
+            if (xobj.readyState == 4 && xobj.status == "200") {
+              // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+              callback(xobj.responseText);
+            }
+      };
+      xobj.send(null);
+   }
+
       var components = MageryCompiler.compile('template');
       var target = document.querySelector('amnesty-pdf');
-      var data = {
-    "title": "Honduras: Armed attack against members of COPINH",
-    "date": "5 July 2017",
-    "number": "THIRD UA 60/16",
-    "indexNumber": "AMR 37/6674/2017",
-    "summary": "On 30 June unknown assailants attacked Berta Zuniga Cáceres, Sotero Chavarría Fúnez and José Asunción\nMartínez, coordinators of the Civic Council of Popular and Indigenous Organizations of Honduras (COPINH),\nwhile they were on the road returning to La Esperanza municipality. The safety of COPINH members remains\nat risk.",
-    "letter": "Dear Minister,\nI am concerned to hear about another violent attack against human rights defenders of the Civic Council of\nPopular and Indigenous Organizations of Honduras (COPINH) following their meeting with the Indigenous\nCouncil of Cancire community to discuss defending the community’s territory and environment.\nOn 30 June, COPINH coordinators Berta Zuniga Cáceres, Sotero Chavarría Fúnez and José Asunción\nMartínez were returning home from Cancire when a vehicle overtook theirs at high speed. Three people\ncarrying machetes and the driver stepped out and began hitting COPINH’s car with their weapons. Again on\nthe road a few minutes later, the same vehicle tried to force COPINH’s car off the road.\nSotero Chavarría Fúnez recently reported unknown men trying to kidnap the mother of his children. On 21\nJune, an unknown man threatened COPINH coordinator Francisco Javier Sánchez with a pistol while he was\nworking the land, saying he would kill his children.\nIt is clear that defending land, territory and the environment is incredibly dangerous work in Honduras. In\n2016, 116 defenders working on these issues were killed worldwide, the majority in Latin America and 12 in\nHonduras alone.\nI urge you to ensure that COPINH members have all the protection they ask for, and for you to publicly\nrecognize the legitimate human rights work done by their organization.\nYours sincerely,\nTARGET’S CONTACT DETAILS & “COPIES TO”\nMinister of Security\nGeneral de División Julián Pacheco\nSecretaría de Estado en el Despacho de Seguridad, Aldea el Ocotal\nAntiguo Local de la Academia Nacional de Policía ANAPO\nTegucigalpa, Honduras\nEmail: comunicacionCNDS@gmail.com, sprudott@yahoo.com\nSalutation: Dear Minister/Estimado Señor Secretario de Seguridad",
-    "preferredLanguage": "Spanish",
-    "deadline": "16 August 2017\nALSO SEND COPIES TO DIPLOMATIC REPRESENTATIVES ACCREDITED TO YOUR COUNTRY\n1\n\n\f[Sections to add when relevant]",
-    "previousUALink": "https://www.amnesty.org/en/documents/amr37/3776/2016/en/",
-    "background": "Members of COPINH and Berta Cáceres’ relatives, including her daughter Berta Zuniga Cáceres, have been targeted with\nharassment and attacks since Berta Cáceres, leader and cofounder of COPINH, was shot dead on 2 March 2016 in her\nhome in the town of La Esperanza, in the province of Intibucá, west Honduras.\nOn 8 March 2016 in San Francisco de Lempira, southwest Honduras, four armed men in plain clothes driving two vehicles\nwithout plates parked by a community radio station’s premises and took pictures of the people getting in and out. One of\nthe armed men threatened a radio worker at gun point, then grabbed his phone and deleted the pictures he took to record\nthe incident. The same week, community members saw other men driving cars without plates surrounding Aureliano\nMolina's house and trying unsuccessfully to break into his home. On 11 March in La Esperanza, COPINH members\nreported seeing unidentified men monitoring the organization’s Casa de Sanación y Justicia (a shelter for women) and the\nUtopia Centre (a community centre). A car stood in front of the entrance of Utopia Centre late at night for several minutes.\nThat same day, police officers took pictures of participants in a public demonstration demanding justice for Berta Cáceres\nin several cities of Honduras. An armed man in plain clothes followed one of Berta Cáceres' daughters in a mall in\nTegucigalpa, the capital, during the same week.\nOn 13 July 2016, the offices of Honduran organization Broad Movement for Justice and Dignity (Movimiento Amplio por la\nDignidad y la Justicia, MADJ) were burglarized. The burglar stole computers with sensitive information on high-profile\ncases they represent, including the assassination of human rights defender Berta Cáceres (for more information, see:\nhttps://www.amnesty.org/en/documents/amr37/4453/2016/en/).\nOn 31 January 2017, international organization Global Witness launched a new report about the situation of land, territory\nand environmental defenders in Honduras. The weekend before, a poster began to circulate on social media, accusing\nmembers of Honduran organizations the Independent Lenca Indigenous Movement of La Paz (Movimiento Indígena\nLenca Independiente de La Paz, MILPAH), the Honduran Centre for the Promotion of Community Development (Centro\nHondureño de Promoción para el Desarrollo Comunitario, CEHPRODEC) and COPINH, as well Global Witness, of\ndiscrediting the country, being allied with radical groups and of funding smear campaigns against Honduras (for more\ninformation, see: https://www.amnesty.org/en/documents/amr37/5613/2017/en/).\nCOPINH has been fighting for Lenca Indigenous peoples’ rights for over 20 years. COPINH members have been\ncampaigning for their right to free, prior and informed consent in relation to a proposal for a hydroelectric plant that might\nforce them out of their ancestral lands since 2011. Its members continue to be targeted with threats and harassment in\nconnection with their work. Despite having been the subject of threats and harassment for years in connection to her\nhuman rights work—for which she was granted precautionary measures by the Inter-American Commission on Human\nRights—the investigation into Berta Cáceres’ death so far has achieved minimum progress. Amnesty International has\ncalled on the authorities to ensure that the evidence is made available so that the parties involved in the case can exercise\ntheir rights and so that a thorough and impartial investigation into the killing can take place (see Justice still in jeopardy in\nBerta Cáceres murder case, https://www.amnesty.org/en/documents/amr37/6335/2017/en/).\n\n2"
-};
-
-      components['amnesty-pdf'](target, data);
-
+      loadJSON(function(response) {
+        // Parse JSON string into object
+          var data = JSON.parse(response);
+          components['amnesty-pdf'](target, data);
+       });
     </script>
-
 
   </body>
 </html>
