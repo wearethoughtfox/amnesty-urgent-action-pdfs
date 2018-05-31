@@ -35,7 +35,7 @@ var labels = [
           re: /URGENT ACTION SUMMARY:/
     },
     {
-        name: 'letter',
+        name: 'letterTest',
         text: 'URGENT ACTION LETTER:',
           re: /URGENT ACTION LETTER:/
     },
