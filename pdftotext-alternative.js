@@ -35,7 +35,7 @@ var labels = [
           re: /URGENT ACTION SUMMARY:/
     },
     {
-        name: 'letterTest',
+        name: 'letter',
         text: 'URGENT ACTION LETTER:',
           re: /URGENT ACTION LETTER:/
     },
@@ -119,6 +119,15 @@ var scrapedData = sections.reduce(function (accumulator, currentSection) {
 
     return accumulator;
 }, {});
+
+if (scrapedData.letter) {
+      scrapedData.letter = scrapedData.letter.split('.\n');
+      var letterArray = scrapedData.letter;
+      for(var i = 0; i < letterArray.length; ++i) {
+        letterArray[i] = letterArray[i].replace(/(\n)/gm," ");
+      }
+      scrapedData.letter = letterArray;
+  }
 
 var jsonContent = JSON.stringify(scrapedData, null, 4);
 
