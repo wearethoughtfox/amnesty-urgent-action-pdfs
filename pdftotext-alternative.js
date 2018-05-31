@@ -2,7 +2,10 @@ var pdftotext = require('pdftotextjs');
 var fs = require('fs');
 
 // Get all the text from the PDF, as one long string.
-var pdftext = new pdftotext('sample/test.pdf').getTextSync().toString('utf8');
+var pdf = new pdftotext('sample/test.pdf');
+var pdftext = pdf.getTextSync().toString('latin1');
+
+console.log({"pdftext": pdftext});
 
 // Define each label we want to search for in the PDF
 // As long as we know all the possible labels, it doesn’t matter if some labels are missing from some PDFs — we should still get the right content.
@@ -122,11 +125,10 @@ var scrapedData = sections.reduce(function (accumulator, currentSection) {
 
 if (scrapedData.letter) {
       scrapedData.letter = scrapedData.letter.split('\n');
-/*      var letterArray = scrapedData.letter;
-      for(var i = 0; i < letterArray.length; ++i) {
-        letterArray[i] = letterArray[i].replace(/(\n)/gm," ");
-      }
-      scrapedData.letter = letterArray;*/
+  }
+
+if (scrapedData.background) {
+      scrapedData.background = scrapedData.background.split('\n');
   }
 
 var jsonContent = JSON.stringify(scrapedData, null, 4);

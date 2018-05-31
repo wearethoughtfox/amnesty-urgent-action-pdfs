@@ -20,17 +20,19 @@
   </header>
   <div class="fn fl-ns w-50-ns">
 
+    <h2 class="moon-gray bb b--black-20 pb3">Summary</h2>
     <p class="lh-copy measure mt4 mt0-ns f3 i">
       {{ summary }}
     </p>
 
-    <p data-each="paragraphs in letter" class=" lh-copy measure f4">
-      {{ paragraphs }}
+    <h2 class="moon-gray bb b--black-20 pb3">Letter</h2>
+    <p data-each="letterparagraphs in letter" class=" lh-copy measure f4">
+      {{ letterparagraphs }}
     </p>
 
-
-    <p class="lh-copy measure f5 bt b--black-70 pt4">
-      {{ background }}
+    <h2 class="moon-gray bb b--black-20 pb3">Background</h2>
+    <p data-each="backgroundparagraphs in background" class="lh-copy measure f5">
+      {{ backgroundparagraphs }}
     </p>
   </div>
 </article>

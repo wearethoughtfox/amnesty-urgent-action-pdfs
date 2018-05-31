@@ -15,7 +15,7 @@ https://www.amnesty.org/en/documents/afr63/8403/2018/en/ - Button
 
 ## The solution
 
-1. The script requires pdftotext and pdftotextjs on the machine running the code.
+1. The script requires pdftotext and pdftotextjs on the machine running the code. Installed pdftotext via brew install xpdf.
 2. In the NodeJS [script](/pdftotext-alternative.js) we have defined a set of labels based on the sample PDF provided.
 3. We need to know all possible labels, but not all labels need to be in all PDFs.
 4. The script uses pdftotext through the pdftotextjs wrapper to convert the sample PDF to a string.
