@@ -35,7 +35,7 @@ var labels = [
     },
     {
         name: 'targetContactDetails',
-        text: 'TARGET\'S CONTACT DETAILS & "COPIES TO"'
+        text: 'TARGET’S CONTACT DETAILS & “COPIES TO”'
     },
     {
         name: 'preferredLanguage',
