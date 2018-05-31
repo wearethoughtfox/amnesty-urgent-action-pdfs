@@ -46,6 +46,10 @@ var labels = [
         text: 'APPEAL DEADLINE NOTICE:'
     },
     {
+        name: 'sendCopies',
+        text: 'ALSO SEND COPIES TO DIPLOMATIC REPRESENTATIVES ACCREDITED TO YOUR COUNTRY'
+    },
+    {
         name: 'previousUALink',
         text: 'LINK TO PREVIOUS UA:'
     },
